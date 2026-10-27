@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="sq" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Servis Niki | Pavlan, Pejë, Kosovë</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Rajdhani -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            panel: '#1e293b',
+                            card: '#182232',
+                            blue: '#0284c7',
+                            cyan: '#38bdf8',
+                            orange: '#f97316',
+                            hoverOrange: '#ea580c',
+                            metallic: '#334155'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Rajdhani', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f97316;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.94) 0%, rgba(30, 41, 59, 0.88) 100%), 
+                        url('https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .metallic-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.35);
+            border-color: rgba(249, 115, 22, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-brand-orange selection:text-slate-900">
+
+    <!-- Top Info Bar -->
+    <div class="bg-slate-900 text-slate-300 text-xs md:text-sm py-2 px-4 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center text-brand-orange font-semibold">
+                    <i class="fa-solid fa-location-dot mr-1.5"></i>
+                    Pavlan, Pejë, Kosovë
+                </span>
+                <span class="hidden sm:inline text-slate-500">|</span>
+                <span class="hidden sm:inline"><i class="fa-regular fa-clock text-slate-400 mr-1"></i> Mon-Sat: 08:30 - 18:00</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="tel:+38349499937" class="font-bold text-white hover:text-brand-orange transition flex items-center">
+                    <i class="fa-solid fa-phone text-brand-orange mr-1.5"></i> +383 49 499 937
+                </a>
+                <a href="https://wa.me/38349499937" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded text-xs font-semibold transition flex items-center">
+                    <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-brand-panel/90 backdrop-blur-md border-b border-slate-800 sticky top-[37px] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-tr from-brand-orange to-amber-500 rounded-xl flex items-center justify-center text-slate-950 font-black text-2xl shadow-lg transform group-hover:rotate-6 transition duration-300">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <div>
+                        <span class="font-tech text-2xl md:text-3xl font-bold tracking-wider text-white uppercase block leading-none">AUTO SERVIS <span class="text-brand-orange">NIKI</span></span>
+                        <span class="text-[10px] tracking-widest text-brand-cyan uppercase font-semibold" data-i18n="sloganShort">Kujdesi i duhur për veturën tuaj!</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu & Language Toggle -->
+                <div class="hidden lg:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#about" class="hover:text-brand-orange transition" data-i18n="navAbout">Rreth Nesh</a>
+                    <a href="#services" class="hover:text-brand-orange transition" data-i18n="navServices">Shërbimet</a>
+                    <a href="#brands" class="hover:text-brand-orange transition" data-i18n="navBrands">Markat</a>
+                    <a href="#gallery" class="hover:text-brand-orange transition" data-i18n="navGallery">Galeria</a>
+                    <a href="#booking" class="hover:text-brand-orange transition" data-i18n="navBook">Cakto Termin</a>
+                    <a href="#reviews" class="hover:text-brand-orange transition" data-i18n="navReviews">Vlerësimet</a>
+                    <a href="#contact" class="hover:text-brand-orange transition" data-i18n="navContact">Kontakti</a>
+
+                    <!-- Language Switcher Button -->
+                    <button id="lang-toggle-btn" onclick="toggleLanguage()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5">
+                        <i class="fa-solid fa-globe text-brand-cyan"></i>
+                        <span id="lang-label">EN</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu & Language Toggle -->
+                <div class="flex items-center space-x-2 lg:hidden">
+                    <button onclick="toggleLanguage()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white px-2.5 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1">
+                        <i class="fa-solid fa-globe text-brand-cyan"></i>
+                        <span id="lang-label-mobile">EN</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-dark/95 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="mobile-link block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="navAbout">Rreth Nesh</a>
+            <a href="#services" class="mobile-link block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="navServices">Shërbimet</a>
+            <a href="#brands" class="mobile-link block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="navBrands">Markat</a>
+            <a href="#gallery" class="mobile-link block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="navGallery">Galeria</a>
+            <a href="#booking" class="mobile-link block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="navBook">Cakto Termin</a>
+            <a href="#reviews" class="mobile-link block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="navReviews">Vlerësimet</a>
+            <a href="#contact" class="mobile-link block py-2 text-slate-200 hover:text-brand-orange font-medium" data-i18n="navContact">Kontakti</a>
+            <a href="#booking" class="mobile-link block text-center bg-brand-orange hover:bg-brand-hoverOrange text-white font-semibold py-3 rounded-lg shadow-md" data-i18n="navBookBtn">
+                Cakto Termin Tani
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient relative min-h-[80vh] flex items-center justify-center border-b border-slate-800 py-16 px-4">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-slate-900/80 border border-brand-orange/40 px-4 py-2 rounded-full mb-6 backdrop-blur-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+                <span class="text-xs md:text-sm font-semibold tracking-wide text-brand-orange uppercase" data-i18n="heroBadge">Auto Servis në Pavlan, Pejë</span>
+            </div>
+            
+            <h1 class="font-tech text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white uppercase mb-6 leading-tight">
+                <span data-i18n="heroTitleMain">Auto Servis Niki</span> <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-amber-400 to-brand-cyan" data-i18n="heroTitleSub">Kujdesi i duhur për veturën tuaj!</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-slate-300 text-lg sm:text-xl font-light mb-10 leading-relaxed" data-i18n="heroDescription">
+                Autoservis i përkushtuar për mirëmbajtjen dhe riparimin e automjeteve tuaja. Me kujdes maksimal, korrektësi dhe shërbim cilësor për Audi, BMW, Mercedes-Benz, Volkswagen, Porsche, Škoda, Peugeot, Renault e mbi 20 marka të tjera.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+                <a href="tel:+38349499937" class="w-full sm:w-auto bg-gradient-to-r from-brand-orange to-brand-hoverOrange text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-orange-500/20 hover:shadow-orange-500/40 transition transform hover:-translate-y-1 flex items-center justify-center">
+                    <i class="fa-solid fa-phone mr-3"></i> <span data-i18n="heroCallBtn">Thirr Tani (+383 49 499 937)</span>
+                </a>
+                <a href="https://wa.me/38349499937" target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl shadow-emerald-600/20 transition transform hover:-translate-y-1 flex items-center justify-center">
+                    <i class="fa-brands fa-whatsapp mr-3 text-xl"></i> <span data-i18n="heroWhatsAppBtn">Shkruaj në WhatsApp</span>
+                </a>
+            </div>
+
+            <!-- Highlights Banner -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-10 border-t border-slate-800/80 max-w-4xl mx-auto">
+                <div class="flex items-center justify-center space-x-3 text-slate-300">
+                    <i class="fa-solid fa-user-group text-2xl text-brand-orange"></i>
+                    <span class="text-left font-tech text-sm uppercase leading-tight font-semibold" data-i18n="highlightTeam">Ekip me 2 Punëtorë<br><span class="text-xs font-normal text-slate-400" data-i18n="highlightTeamSub">Kujdes Maksimal</span></span>
+                </div>
+                <div class="flex items-center justify-center space-x-3 text-slate-300">
+                    <i class="fa-solid fa-location-dot text-2xl text-brand-cyan"></i>
+                    <span class="text-left font-tech text-sm uppercase leading-tight font-semibold" data-i18n="highlightLoc">Pavlan, Pejë<br><span class="text-xs font-normal text-slate-400" data-i18n="highlightLocSub">Kosovë</span></span>
+                </div>
+                <div class="flex items-center justify-center space-x-3 text-slate-300">
+                    <i class="fa-solid fa-handshake text-2xl text-brand-orange"></i>
+                    <span class="text-left font-tech text-sm uppercase leading-tight font-semibold" data-i18n="highlightHonesty">Korrektësi<br><span class="text-xs font-normal text-slate-400" data-i18n="highlightHonestySub">Dhe Besueshmëri</span></span>
+                </div>
+                <div class="flex items-center justify-center space-x-3 text-slate-300">
+                    <i class="fa-solid fa-car-side text-2xl text-brand-cyan"></i>
+                    <span class="text-left font-tech text-sm uppercase leading-tight font-semibold" data-i18n="highlightBrands">20+ Marka Veturash<br><span class="text-xs font-normal text-slate-400" data-i18n="highlightBrandsSub">Audi, BMW, VW, MB...</span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-brand-orange text-sm font-bold tracking-widest uppercase mb-2" data-i18n="aboutSubtitle">Rreth Nesh</h2>
+                <p class="font-tech text-4xl sm:text-5xl font-extrabold uppercase tracking-tight mb-6" data-i18n="aboutTitle">Auto Servis Niki – Pavlan, Pejë</p>
+                
+                <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="aboutText1">
+                    Auto Servis Niki është autoservis i lokalizuar në Pavlan, Pejë, i përkushtuar plotësisht për mirëmbajtjen dhe riparimin profesional të automjeteve.
+                </p>
+
+                <p class="text-slate-300 text-base leading-relaxed mb-6" data-i18n="aboutText2">
+                    Me një ekip prej dy punëtorësh me përvojë, ne synojmë t'u ofrojmë të gjithë klientëve tanë shërbim cilësor, korrektësi absolute dhe kujdes maksimal për çdo automjet që hyn në servisin tonë.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                    <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800">
+                        <i class="fa-solid fa-circle-check text-2xl text-brand-orange mb-2"></i>
+                        <h4 class="font-bold text-base text-white" data-i18n="aboutPoint1Title">Kujdes i Detajuar</h4>
+                        <p class="text-xs text-slate-400" data-i18n="aboutPoint1Desc">Trajtim individual për çdo automjet dhe kontroll i thikët i çdo defekti.</p>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-5 rounded-xl border border-slate-800">
+                        <i class="fa-solid fa-hand-holding-hand text-2xl text-brand-cyan mb-2"></i>
+                        <h4 class="font-bold text-base text-white" data-i18n="aboutPoint2Title">Korrektësi në Punë</h4>
+                        <p class="text-xs text-slate-400" data-i18n="aboutPoint2Desc">Çmime me vend, komunikim i hapur dhe respektim i afateve të caktuara.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image / Showcase -->
+            <div class="relative">
+                <div class="metallic-card rounded-2xl p-6 border border-slate-700/80">
+                    <img src="https://carservis.lv/wp-content/uploads/2025/04/autoelektrikis-imanta-riga-auto-elektrikis-carservis-1024x683.webp" alt="Auto Servis Niki Workshop" class="rounded-xl object-cover h-80 w-full mb-6">
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="flex items-center space-x-2 text-slate-300">
+                            <i class="fa-solid fa-map-pin text-brand-orange text-lg"></i>
+                            <span class="font-semibold">Pavlan, Pejë, Kosovë</span>
+                        </div>
+                        <a href="tel:+38349499937" class="text-brand-cyan hover:underline font-bold">+383 49 499 937</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Serviced Section (20+ Brands Grid) -->
+    <section id="brands" class="py-16 bg-brand-panel/40 border-y border-slate-800 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-brand-orange text-xs font-bold tracking-widest uppercase mb-2" data-i18n="brandsSubtitle">Markat që Mbulojmë</h2>
+            <p class="font-tech text-3xl sm:text-4xl font-extrabold uppercase mb-8" data-i18n="brandsTitle">Servisim Profesional për Mbi 20 Marka Automjetesh</p>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 text-slate-200">
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Audi</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>BMW</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Mercedes-Benz</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Volkswagen</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Porsche</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Škoda</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>SEAT</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Opel</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Ford</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Peugeot</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Renault</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Citroën</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Fiat</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Alfa Romeo</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Toyota</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Honda</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Nissan</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Hyundai</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Kia</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Volvo</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-orange border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-orange text-sm"></i> <span>Land Rover</span>
+                </div>
+                <div class="bg-slate-900/90 hover:border-brand-cyan border border-slate-800 p-4 rounded-xl flex items-center justify-center space-x-2 transition font-tech font-bold text-lg">
+                    <i class="fa-solid fa-car text-brand-cyan text-sm"></i> <span>Jaguar</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-brand-orange text-sm font-bold tracking-widest uppercase mb-2" data-i18n="servicesSubtitle">Puna e Jonë</h2>
+            <p class="font-tech text-4xl sm:text-5xl font-extrabold uppercase tracking-tight" data-i18n="servicesTitle">Shërbimet që Ofrojmë</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-brand-orange to-brand-cyan mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="metallic-card rounded-2xl p-8 transition duration-300 glow-effect">
+                <div class="w-14 h-14 bg-brand-orange/20 text-brand-orange rounded-xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-oil-can"></i>
+                </div>
+                <h3 class="font-tech text-2xl font-bold uppercase mb-3 text-white" data-i18n="s1Title">Servisimi Periodik & Vajrat</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-i18n="s1Desc">
+                    Ndërrimi i vajit të motorit, filtrit të vajit, ajrit, karburantit dhe kabinës me produkte cilësore.
+                </p>
+                <a href="#booking" class="text-xs font-bold text-brand-orange hover:text-white transition flex items-center">
+                    <span data-i18n="serviceBookBtn">Cakto Termin për këtë Shërbim</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="metallic-card rounded-2xl p-8 transition duration-300 glow-effect">
+                <div class="w-14 h-14 bg-brand-cyan/20 text-brand-cyan rounded-xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </div>
+                <h3 class="font-tech text-2xl font-bold uppercase mb-3 text-white" data-i18n="s2Title">Autodiagnostikë Kompjuterike</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-i18n="s2Desc">
+                    Kontrolli kompjuterik i gabimeve të sistemit (ECU), leximi i kodit të defekteve dhe fshirja e gabimeve.
+                </p>
+                <a href="#booking" class="text-xs font-bold text-brand-cyan hover:text-white transition flex items-center">
+                    <span data-i18n="serviceBookBtn">Cakto Termin për këtë Shërbim</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="metallic-card rounded-2xl p-8 transition duration-300 glow-effect">
+                <div class="w-14 h-14 bg-brand-orange/20 text-brand-orange rounded-xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-car-burst"></i>
+                </div>
+                <h3 class="font-tech text-2xl font-bold uppercase mb-3 text-white" data-i18n="s3Title">Frenat & Amortizimi</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-i18n="s3Desc">
+                    Ndërrimi i gurëve të frenave, disqeve, amortizatorëve dhe kontrolli i plotë i sistemit të sigurisë.
+                </p>
+                <a href="#booking" class="text-xs font-bold text-brand-orange hover:text-white transition flex items-center">
+                    <span data-i18n="serviceBookBtn">Cakto Termin për këtë Shërbim</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="metallic-card rounded-2xl p-8 transition duration-300 glow-effect">
+                <div class="w-14 h-14 bg-brand-cyan/20 text-brand-cyan rounded-xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-gears"></i>
+                </div>
+                <h3 class="font-tech text-2xl font-bold uppercase mb-3 text-white" data-i18n="s4Title">Reparim i Motorit & Ndërruesit</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-i18n="s4Desc">
+                    Riparime mekanike për motorë, ndërrim i rripit dhëmbëzor (Rripit të Fazës), pompës së ujit dhe pjesëve përbërëse.
+                </p>
+                <a href="#booking" class="text-xs font-bold text-brand-cyan hover:text-white transition flex items-center">
+                    <span data-i18n="serviceBookBtn">Cakto Termin për këtë Shërbim</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="metallic-card rounded-2xl p-8 transition duration-300 glow-effect">
+                <div class="w-14 h-14 bg-brand-orange/20 text-brand-orange rounded-xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3 class="font-tech text-2xl font-bold uppercase mb-3 text-white" data-i18n="s5Title">Sistemi Elektrik & Bateria</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-i18n="s5Desc">
+                    Diagnostikimi i problemeve elektrike, kontrolli i akumulatorit, alternatorit dhe demarerit.
+                </p>
+                <a href="#booking" class="text-xs font-bold text-brand-orange hover:text-white transition flex items-center">
+                    <span data-i18n="serviceBookBtn">Cakto Termin për këtë Shërbim</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="metallic-card rounded-2xl p-8 transition duration-300 glow-effect">
+                <div class="w-14 h-14 bg-brand-cyan/20 text-brand-cyan rounded-xl flex items-center justify-center text-2xl mb-6">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <h3 class="font-tech text-2xl font-bold uppercase mb-3 text-white" data-i18n="s6Title">Kontroll Para Kontrollimit Teknik</h3>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed" data-i18n="s6Desc">
+                    Inspektim i detajuar i të gjitha sistemeve të automjetit tuaj për të siguruar kalimin pa probleme të kontrollit teknik.
+                </p>
+                <a href="#booking" class="text-xs font-bold text-brand-cyan hover:text-white transition flex items-center">
+                    <span data-i18n="serviceBookBtn">Cakto Termin për këtë Shërbim</span> <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="py-20 bg-brand-panel/30 border-y border-slate-800 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-brand-orange text-sm font-bold tracking-widest uppercase mb-2" data-i18n="gallerySubtitle">Puna në Servis</h2>
+                <p class="font-tech text-4xl sm:text-5xl font-extrabold uppercase tracking-tight" data-i18n="galleryTitle">Galeria e Fotove</p>
+                <p class="text-slate-400 mt-2 max-w-2xl mx-auto text-sm" data-i18n="galleryDesc">Pamje nga punët e përditshme, kontrolli i motorëve, diagnostikimi dhe mirëmbajtja e veturave në servisin tonë.</p>
+                
+                <!-- Gallery Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8">
+                    <button onclick="filterGallery('all')" class="gallery-btn active bg-brand-orange text-white px-4 py-2 rounded-xl text-xs font-bold transition" data-filter="all" data-i18n="galFilterAll">Të gjitha</button>
+                    <button onclick="filterGallery('engine')" class="gallery-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-2 rounded-xl text-xs font-bold transition" data-filter="engine" data-i18n="galFilterEngine">Motori & Rripi</button>
+                    <button onclick="filterGallery('brakes')" class="gallery-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-2 rounded-xl text-xs font-bold transition" data-filter="brakes" data-i18n="galFilterBrakes">Frenat & Trapet</button>
+                    <button onclick="filterGallery('diag')" class="gallery-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-2 rounded-xl text-xs font-bold transition" data-filter="diag" data-i18n="galFilterDiag">Diagnostikë</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="gallery-grid">
+                <div class="gallery-item engine metallic-card rounded-2xl overflow-hidden group relative cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80', 'Riparim & Kontroll i Motorit')">
+                    <img src="https://gandgautorepair.com/wp-content/uploads/2023/06/Car-Maintenance.jpg.webp" alt="Engine Service" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-orange text-xs font-bold uppercase" data-i18n="galItem1Cat">Motori</span>
+                        <h4 class="font-tech text-xl font-bold text-white uppercase" data-i18n="galItem1Title">Riparim i Motorit</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item brakes metallic-card rounded-2xl overflow-hidden group relative cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1600793575654-910699b5e4d4?auto=format&fit=crop&w=1200&q=80', 'Ndërrimi i Frenave dhe Disqeve')">
+                    <img src="https://images.unsplash.com/photo-1600793575654-910699b5e4d4?auto=format&fit=crop&w=600&q=80" alt="Brake Service" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-cyan text-xs font-bold uppercase" data-i18n="galItem2Cat">Frenat</span>
+                        <h4 class="font-tech text-xl font-bold text-white uppercase" data-i18n="galItem2Title">Gurët & Disqet e Frenave</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item diag metallic-card rounded-2xl overflow-hidden group relative cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1551522435-a13afa10f103?auto=format&fit=crop&w=1200&q=80', 'Autodiagnostikë Kompjuterike ECU')">
+                    <img src="https://images.unsplash.com/photo-1551522435-a13afa10f103?auto=format&fit=crop&w=600&q=80" alt="Diagnostics" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-orange text-xs font-bold uppercase" data-i18n="galItem3Cat">Diagnostikë</span>
+                        <h4 class="font-tech text-xl font-bold text-white uppercase" data-i18n="galItem3Title">Kontrolli Kompjuterik</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item engine metallic-card rounded-2xl overflow-hidden group relative cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80', 'Servisim Periodik i Vajrave & Filtrave')">
+                    <img src="https://di-uploads-pod33.dealerinspire.com/auffenbergofcarbondale1/uploads/2023/09/15.jpg" alt="Oil Maintenance" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-cyan text-xs font-bold uppercase" data-i18n="galItem4Cat">Servisimi</span>
+                        <h4 class="font-tech text-xl font-bold text-white uppercase" data-i18n="galItem4Title">Vajra & Filtra Quality</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item brakes metallic-card rounded-2xl overflow-hidden group relative cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1200&q=80', 'Kontrolli i Amortizimit & Suspensionit')">
+                    <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=600&q=80" alt="Suspension Work" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-orange text-xs font-bold uppercase" data-i18n="galItem5Cat">Amortizimi</span>
+                        <h4 class="font-tech text-xl font-bold text-white uppercase" data-i18n="galItem5Title">Trapet & Amortizatorët</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-item engine metallic-card rounded-2xl overflow-hidden group relative cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80', 'Reparim i Rripit të Fazës & Pjesëve')">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="Timing Belt Repair" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-slate-950/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-brand-cyan text-xs font-bold uppercase" data-i18n="galItem6Cat">Mekanikë</span>
+                        <h4 class="font-tech text-xl font-bold text-white uppercase" data-i18n="galItem6Title">Pjesët & Rripi i Fazës</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-slate-950/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-md">
+        <div class="max-w-4xl w-full relative metallic-card rounded-2xl overflow-hidden p-2">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 bg-slate-900 text-white hover:text-brand-orange w-10 h-10 rounded-full flex items-center justify-center text-xl z-10 border border-slate-700">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="Enlarged gallery photo" class="w-full h-[70vh] object-contain bg-slate-950 rounded-xl">
+            <p id="lightbox-caption" class="text-center font-tech text-xl font-bold text-white py-3 uppercase tracking-wider"></p>
+        </div>
+    </div>
+
+    <!-- Booking Form Section with Free-Form Custom Problem Description Input -->
+    <section id="booking" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <div class="lg:col-span-5 space-y-6">
+                <div>
+                    <h2 class="text-brand-orange text-sm font-bold tracking-widest uppercase mb-2" data-i18n="bookSubtitle">Caktoni Termin Online</h2>
+                    <p class="font-tech text-4xl sm:text-5xl font-extrabold uppercase tracking-tight mb-6" data-i18n="bookTitle">Rezervoni Vizitën Tuaj</p>
+                    <p class="text-slate-300 leading-relaxed" data-i18n="bookDesc">
+                        Shkruani me fjalët tuaja se çfarë problemi ka vetura. Zgjidhni datën dhe orën që ju convenon më së miri dhe ne do të përgatitemi për vizitën tuaj.
+                    </p>
+                </div>
+
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-start space-x-4 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                        <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-brand-orange text-xl shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-base" data-i18n="bookLocTitle">Servisi ynë</h4>
+                            <p class="text-xs text-slate-400">Pavlan, Pejë, Kosovë</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                        <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-brand-cyan text-xl shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-base" data-i18n="bookPhoneTitle">Kontakt Direkt</h4>
+                            <a href="tel:+38349499937" class="text-xs text-brand-cyan hover:underline font-bold">+383 49 499 937</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                        <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-emerald-400 text-xl shrink-0">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-base">WhatsApp</h4>
+                            <a href="https://wa.me/38349499937" target="_blank" class="text-xs text-emerald-400 hover:underline font-bold">+383 49 499 937</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="lg:col-span-7">
+                <form id="appointment-form" class="metallic-card rounded-2xl p-6 sm:p-10 border border-slate-700/60 shadow-2xl space-y-6">
+                    <h3 class="font-tech text-2xl font-bold uppercase text-white pb-4 border-b border-slate-800 flex items-center justify-between">
+                        <span data-i18n="formHeader">Formulari i Terminit</span>
+                        <span class="text-xs font-sans text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full font-semibold" data-i18n="formBadge">Auto Servis Niki</span>
+                    </h3>
+
+                    <!-- Personal Information -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2" data-i18n="formNameLabel">Emri & Mbiemri</label>
+                            <input type="text" id="client-name" placeholder="Filan Fisteku" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-brand-orange focus:outline-none text-slate-200">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2" data-i18n="formPhoneLabel">Numri i Telefonit</label>
+                            <input type="tel" id="client-phone" placeholder="+383 49 ..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-brand-orange focus:outline-none text-slate-200">
+                        </div>
+                    </div>
+
+                    <!-- Vehicle Info & Date/Time -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2" data-i18n="formVehicleLabel">Informata për Veturën (Marka, Modeli, Viti)</label>
+                            <input type="text" id="car-info" placeholder="p.sh. Audi A4 2.0 TDI (2017)" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-brand-orange focus:outline-none text-slate-200">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2" data-i18n="formDateLabel">Data & Ora e Preferuar</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="date" id="book-date" required class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-3 text-xs focus:border-brand-orange focus:outline-none text-slate-200">
+                                <select id="book-time" required class="bg-slate-900 border border-slate-700 rounded-xl px-2 py-3 text-xs focus:border-brand-orange focus:outline-none text-slate-200">
+                                    <option value="09:00 AM">09:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="01:00 PM">01:00 PM</option>
+                                    <option value="03:00 PM">03:00 PM</option>
+                                    <option value="05:00 PM">05:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Open Textarea for Custom Car Problem Description -->
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 uppercase mb-2" data-i18n="formProblemLabel">Përshkruaj çfarë problemi ka vetura tuaj</label>
+                        <textarea id="car-problem" rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-sm focus:border-brand-orange focus:outline-none text-slate-200 resize-none" placeholder="Përshkruaj me fjalët tua se çfarë problemi ka vetura..." data-i18n-placeholder="formProblemPlaceholder"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gradient-to-r from-brand-orange to-brand-hoverOrange text-white font-extrabold py-4 rounded-xl shadow-xl shadow-orange-500/20 hover:shadow-orange-500/40 transition transform hover:-translate-y-0.5 text-base uppercase tracking-wider flex items-center justify-center">
+                        <i class="fa-brands fa-whatsapp text-xl mr-2"></i> <span data-i18n="formSubmitBtn">Dërgo Kërkesën për Termin në WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Reviews / Testimonials Section -->
+    <section id="reviews" class="py-20 bg-brand-panel/30 border-y border-slate-800 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-brand-cyan text-sm font-bold tracking-widest uppercase mb-2" data-i18n="reviewsSubtitle">Fjala e Klientëve</h2>
+            <p class="font-tech text-4xl sm:text-5xl font-extrabold uppercase tracking-tight mb-12" data-i18n="reviewsTitle">Çfarë Thonë Klientët Tanë</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="metallic-card p-8 rounded-2xl text-left relative">
+                    <div class="text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic mb-6 leading-relaxed" data-i18n="rev1Text">
+                        "Servis i shkëlqyer në Pavlan! E dërgova veturën tim Audi A6 për servis të madh dhe diagnostikë. Korrektësi 100% dhe punë e kryer në kohë."
+                    </p>
+                    <div class="flex items-center space-x-3 border-t border-slate-800 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-orange/20 text-brand-orange flex items-center justify-center font-bold">G</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Genc Berisha</h4>
+                            <span class="text-xs text-slate-400">Audi A6 (Pejë)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="metallic-card p-8 rounded-2xl text-left relative">
+                    <div class="text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic mb-6 leading-relaxed" data-i18n="rev2Text">
+                        "Mjeshtër shumë të sjellshëm dhe profesionistë. Zgjidhën një problem elektrik në BMW që më kishte munduar me javë të tëra."
+                    </p>
+                    <div class="flex items-center space-x-3 border-t border-slate-800 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-cyan/20 text-brand-cyan flex items-center justify-center font-bold">A</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Agron Krasniqi</h4>
+                            <span class="text-xs text-slate-400">BMW 530d</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="metallic-card p-8 rounded-2xl text-left relative">
+                    <div class="text-amber-400 text-sm mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-300 text-sm italic mb-6 leading-relaxed" data-i18n="rev3Text">
+                        "Servisim i rregullt i vajrave dhe frenave te Auto Servis Niki. Punë e pastër, çmime shumë me vend dhe shërbim i shpejtë!"
+                    </p>
+                    <div class="flex items-center space-x-3 border-t border-slate-800 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-orange/20 text-brand-orange flex items-center justify-center font-bold">L</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Liridon Gashi</h4>
+                            <span class="text-xs text-slate-400">VW Golf VII</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="contact" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <div class="lg:col-span-5 space-y-8">
+                <div>
+                    <h2 class="text-brand-orange text-sm font-bold tracking-widest uppercase mb-2" data-i18n="contactSubtitle">Informata të Detajuara</h2>
+                    <p class="font-tech text-4xl font-extrabold uppercase tracking-tight" data-i18n="contactTitle">Na Vizitoni në Pavlan, Pejë</p>
+                </div>
+
+                <div class="space-y-4 text-sm">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white" data-i18n="contactLocLabel">Adresa:</h4>
+                            <p class="text-slate-400">Pavlan, Pejë, Kosovë</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white" data-i18n="contactPhoneLabel">Numri i Telefonit:</h4>
+                            <a href="tel:+38349499937" class="text-brand-cyan hover:underline font-bold">+383 49 499 937</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">WhatsApp:</h4>
+                            <a href="https://wa.me/38349499937" target="_blank" class="text-emerald-400 hover:underline font-bold">+383 49 499 937</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hours Table -->
+                <div class="bg-slate-900 rounded-xl p-6 border border-slate-800">
+                    <h4 class="font-tech text-xl font-bold uppercase mb-4 text-brand-orange flex items-center">
+                        <i class="fa-regular fa-clock mr-2"></i> <span data-i18n="hoursTitle">Orari i Punës</span>
+                    </h4>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between border-b border-slate-800 pb-2">
+                            <span class="text-slate-400" data-i18n="hoursWeekdays">E Hënë - E Shtunë:</span>
+                            <span class="font-bold text-slate-200">08:30 - 18:00</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400">
+                            <span data-i18n="hoursSunday">E Diel:</span>
+                            <span class="text-red-400 font-semibold" data-i18n="hoursClosed">Mbyllur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Embedded Interactive Google Map & Location Card -->
+            <div class="lg:col-span-7 metallic-card rounded-2xl overflow-hidden border border-slate-700/70 shadow-2xl flex flex-col">
+                <div class="p-4 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-map-location-dot text-brand-orange text-xl"></i>
+                        <div>
+                            <h4 class="font-tech text-lg font-bold text-white uppercase leading-none">Auto Servis Niki Location</h4>
+                            <span class="text-xs text-slate-400">Pavlan, Pejë, Kosovë</span>
+                        </div>
+                    </div>
+                    <a href="https://maps.app.goo.gl/iuphdXGxmXJBNK2Q7" target="_blank" class="bg-brand-orange hover:bg-brand-hoverOrange text-white text-xs font-bold px-3 py-1.5 rounded-lg transition flex items-center">
+                        <i class="fa-solid fa-diamond-turn-right mr-1.5"></i> <span data-i18n="openMapsBtn">Hap në Google Maps</span>
+                    </a>
+                </div>
+
+                <!-- Google Maps iframe -->
+                <div class="relative w-full h-[380px] bg-slate-950">
+                    <iframe 
+                        title="Auto Servis Niki Google Maps Location"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11756.238841029837!2d20.3015!3d42.6565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1352fde3769c9b5d%3A0x6bd7fa0bf9dbb71!2sPavlan!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s" 
+                        class="w-full h-full border-0 filter grayscale contrast-125 invert opacity-90 hover:filter-none transition duration-500" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Location Action Bar -->
+                <div class="p-4 bg-slate-900 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                    <span class="text-xs text-slate-300 flex items-center font-medium">
+                        <i class="fa-solid fa-circle-info text-brand-cyan mr-1.5"></i> <span data-i18n="mapHint">Klikoni butonin për të hapur navigimin direkt në hartë.</span>
+                    </span>
+                    <a href="https://maps.app.goo.gl/iuphdXGxmXJBNK2Q7" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs font-bold px-4 py-2 rounded-xl transition flex items-center">
+                        <i class="fa-solid fa-location-arrow text-brand-orange mr-2"></i> <span data-i18n="navigateBtn">Navigo te Autoservisi</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 py-12 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-brand-orange rounded-lg flex items-center justify-center text-slate-950 font-black text-base">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </div>
+                <span class="font-tech text-lg font-bold text-white uppercase tracking-wider">AUTO SERVIS NIKI</span>
+            </div>
+
+            <p>© 2026 Auto Servis Niki (Pavlan, Pejë, Kosovë). <span data-i18n="footerTagline">Kujdesi i duhur për veturën tuaj!</span></p>
+
+            <a href="tel:+38349499937" class="text-brand-orange hover:underline font-bold">+383 49 499 937</a>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white border border-brand-orange px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3 max-w-sm pointer-events-none">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-brand-orange text-xl"></i>
+        <span id="toast-msg" class="text-xs font-semibold">Message sent!</span>
+    </div>
+
+    <!-- JavaScript Translations & App Logic -->
+    <script>
+        // Language Dictionaries (SQ / EN)
+        const translations = {
+            sq: {
+                // ... existing translations ...
+                hoursClosed: "Mbyllur",
+                callUsBtn: "Thirr Servisin",
+                openMapsBtn: "Hap në Google Maps",
+                navigateBtn: "Navigo te Autoservisi",
+                mapHint: "Klikoni butonin për të hapur navigimin direkt në hartë.",
+                footerTagline: "Kujdesi i duhur për veturën tuaj!"
+            },
+            en: {
+                // ... existing translations ...
+                hoursClosed: "Closed",
+                callUsBtn: "Call Workshop",
+                openMapsBtn: "Open in Google Maps",
+                navigateBtn: "Navigate to Workshop",
+                mapHint: "Click button to open direct navigation on maps.",
+                footerTagline: "The right care for your vehicle!"
+            }
+        };
+
+        let currentLang = 'sq';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'sq' ? 'en' : 'sq';
+            
+            // Update Toggle Button text
+            document.getElementById('lang-label').textContent = currentLang === 'sq' ? 'EN' : 'SQ';
+            document.getElementById('lang-label-mobile').textContent = currentLang === 'sq' ? 'EN' : 'SQ';
+
+            // Replace text for all data-i18n elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Replace placeholder text
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.placeholder = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Gallery Filter Logic
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const btns = document.querySelectorAll('.gallery-btn');
+
+            btns.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('bg-brand-orange', 'text-white');
+                    btn.classList.remove('bg-slate-800', 'text-slate-300');
+                } else {
+                    btn.classList.remove('bg-brand-orange', 'text-white');
+                    btn.classList.add('bg-slate-800', 'text-slate-300');
+                }
+            });
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Gallery Lightbox Modal
+        function openLightbox(imgSrc, caption) {
+            const modal = document.getElementById('lightbox-modal');
+            const modalImg = document.getElementById('lightbox-img');
+            const modalCap = document.getElementById('lightbox-caption');
+
+            modalImg.src = imgSrc;
+            modalCap.textContent = caption;
+            modal.classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        // Set default date to tomorrow
+        window.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.getElementById('book-date');
+            if (dateInput) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                dateInput.value = tomorrow.toISOString().split('T')[0];
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Appointment Form Submit via WhatsApp
+        const appointmentForm = document.getElementById('appointment-form');
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            const car = document.getElementById('car-info').value;
+            const date = document.getElementById('book-date').value;
+            const time = document.getElementById('book-time').value;
+            const problem = document.getElementById('car-problem').value;
+
+            const text = `Përshëndetje Auto Servis Niki, dëshiroj të caktoj termin:\n\nEmri: ${name}\nTel: ${phone}\nVetura: ${car}\nData: ${date} (${time})\n\nProblemi i veturës:\n"${problem}"`;
+            const encoded = encodeURIComponent(text);
+
+            showToast(currentLang === 'sq' ? 'Kërkesa u përgatit! Po hapet WhatsApp...' : 'Request created! Opening WhatsApp...', 'success');
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/38349499937?text=${encoded}`, '_blank');
+            }, 1000);
+        });
+
+        // Toast Helper
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            const toastIcon = document.getElementById('toast-icon');
+
+            toastMsg.textContent = message;
+
+            if (type === 'error') {
+                toastIcon.className = 'fa-solid fa-circle-exclamation text-red-400 text-xl';
+                toast.style.borderColor = '#f87171';
+            } else {
+                toastIcon.className = 'fa-solid fa-circle-check text-brand-orange text-xl';
+                toast.style.borderColor = '#f97316';
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
